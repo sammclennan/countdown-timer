@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Countdown Timer">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Countdown Timer</title>
+    </head>
+    <body>
+        <main>
+            <div class="central-text">
+                <div class="timer-display">
+                    <span id="hours-wrapper" class="timer-unit-wrapper" data-unit="hours"><span id="hours-display" class="unit-display"></span></span>:<span id="minutes-wrapper" class="timer-unit-wrapper" data-unit="mins"><span id="minutes-display" class="unit-display"></span></span>:<span id="seconds-wrapper" class="timer-unit-wrapper" data-unit="secs"><span id="seconds-display" class="unit-display"></span></span>
+                </div>
+                <div class="timer-controls">
+                    <button id="start-timer" class="timer-control">Start</button>
+                    <button id="pause-timer" class="timer-control hidden">Pause</button>
+                    <button id="reset-timer" class="timer-control">Reset</button>
+                </div>
+            </div>
+            <div class="countdown-circle-container">
+                <svg class="countdown-circle-fill" viewBox="0 0 34 34">
+                    <path 
+                        d="M17 1.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831" 
+                    />
+                </svg>
+                <svg class="countdown-circle-body" viewBox="0 0 34 34">
+                    <path
+                        d="M17 1.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                </svg>
+            </div>
+        </main>
+        <audio id="timer-audio" src="./assets/audio/out_of_time.mp3">Your browser does not support this audio element.</audio>
+        <script src="script.js"></script>
+    </body>
+</html>
