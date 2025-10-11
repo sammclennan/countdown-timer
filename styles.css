@@ -46,7 +46,7 @@ div {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 100vw;
+    width: 100vmin;
 }
 
 .countdown-circle-fill {
@@ -77,23 +77,23 @@ div {
     color: inherit;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 9vw;
+    font-size: 9vmin;
     left: 50%;
     position: absolute;
     text-shadow:
-        0.125vw 0.125vw 0.25vw hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.5),
-        0.25vw 0.25vw 0.5vw hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.25),
-        0.5vw 0.5vw 1vw hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.125);
+        0.125vmin 0.125vmin 0.25vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.5),
+        0.25vmin 0.25vmin 0.5vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.25),
+        0.5vmin 0.5vmin 1vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.125);
     transform: translateX(-50%);
     transition: opacity 0.4s ease-out;
 }
 
 .step-button--decrease {
-    bottom: -5vw;
+    bottom: -5vmin;
 }
 
 .step-button--increase {
-    top: -5vw;
+    top: -5vmin;
 }
 
 .timer-control {
@@ -102,7 +102,7 @@ div {
     color: hsl(0, 0%, 95%);
     cursor: pointer;
     font-family: "Space Grotesk", sans-serif;
-    font-size: max(4.5vw, 18px);
+    font-size: max(4.5vmin, 18px);
     font-weight: 300;
 }
 
@@ -112,21 +112,21 @@ div {
 
 .timer-controls {
     display: flex;
-    gap: 10vw;
+    gap: 10vmin;
     justify-content: center;
-    transform: translateY(min(10vw, 10vh));
+    transform: translateY(min(10vmin, 10vmin));
 }
 
 .timer-display {
     color: inherit;
     font-family: 'Jost', sans-serif;
-    font-size: 18vw;
+    font-size: 18vmin;
     font-weight: 500;
     line-height: 1;
     text-shadow:
-        0.25vw 0.25vw 0.5vw hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.5),
-        0.5vw 0.5vw 1vw hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.25),
-        1vw 1vw 2vw hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.125);
+        0.25vmin 0.25vmin 0.5vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.5),
+        0.5vmin 0.5vmin 1vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.25),
+        1vmin 1vmin 2vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.125);
 }
 
 .timer-unit-wrapper {
@@ -136,42 +136,4 @@ div {
 @keyframes flash {
     0% { opacity: 0.25; }
     100% { opacity: 1; }
-}
-
-@media (orientation: landscape) {
-    .countdown-circle-container {
-        width: 100vh;
-    }
-
-    .step-button {
-        font-size: 9vh;
-        text-shadow: 
-            0.125vh 0.125vh 0.25vh hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.5),
-            0.25vh 0.25vh 0.5vh hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.25),
-            0.5vh 0.5vh 1vh hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.125);
-    }
-
-    .step-button--decrease {
-        bottom: -5vh;
-    }
-
-    .step-button--increase {
-        top: -5vh;
-    }
-
-    .timer-control {
-        font-size: max(4.5vh, 18px);
-    }
-
-    .timer-controls {
-        gap: 10vh;
-    }
-    
-    .timer-display {
-        font-size: 18vh;
-        text-shadow:
-            0.25vh 0.25vh 0.5vh hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.5),
-            0.5vh 0.5vh 1vh hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.25),
-            1vh 1vh 2vh hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.125);
-    }
 }
