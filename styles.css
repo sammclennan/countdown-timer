@@ -5,20 +5,28 @@
 }
 
 * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     background-repeat: no-repeat;
     color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-family: sans-serif;
     height: 100vh;
-    overscroll-behavior: none;
-    justify-content: center;
+    -ms-scroll-chaining: none;
+        overscroll-behavior: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     text-align: center;
     width: 100vw;
 }
@@ -26,7 +34,10 @@ body {
 button,
 span,
 div {
-    user-select: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .central-text {
@@ -45,7 +56,9 @@ div {
     pointer-events: none;
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     width: 100vmin;
 }
 
@@ -59,7 +72,8 @@ div {
 }
 
 .flash {
-    animation: 1s flash ease-out;
+    -webkit-animation: 1s flash ease-out;
+            animation: 1s flash ease-out;
 }
 
 .hidden {
@@ -84,7 +98,11 @@ div {
         0.125vmin 0.125vmin 0.25vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.5),
         0.25vmin 0.25vmin 0.5vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.25),
         0.5vmin 0.5vmin 1vmin hsla(var(--shadow-hue), var(--shadow-saturation), var(--shadow-lightness), 0.125);
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    -webkit-transition: opacity 0.4s ease-out;
+    -o-transition: opacity 0.4s ease-out;
     transition: opacity 0.4s ease-out;
 }
 
@@ -111,10 +129,16 @@ div {
 }
 
 .timer-controls {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     gap: 10vmin;
-    justify-content: center;
-    transform: translateY(min(10vmin, 10vmin));
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-transform: translateY(min(10vmin, 10vmin));
+        -ms-transform: translateY(min(10vmin, 10vmin));
+            transform: translateY(min(10vmin, 10vmin));
 }
 
 .timer-display {
@@ -131,6 +155,11 @@ div {
 
 .timer-unit-wrapper {
     position: relative;
+}
+
+@-webkit-keyframes flash {
+    0% { opacity: 0.25; }
+    100% { opacity: 1; }
 }
 
 @keyframes flash {
