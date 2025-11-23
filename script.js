@@ -29,6 +29,7 @@ const elements = {
     root: document.querySelector(':root'),
     timerDisplay: {
         container: document.querySelector('.timer-display'),
+        unitWrappers: document.querySelectorAll('.time-unit-wrapper'),
         stepButtons: null,
         hours: document.querySelector('#hours-display'),
         mins: document.querySelector('#minutes-display'),
@@ -46,11 +47,9 @@ const elements = {
     audio: document.querySelector('#timer-audio'),
 }
 
-document.querySelectorAll('.timer-unit-wrapper').forEach(wrapper => {
+elements.timerDisplay.unitWrappers.forEach(wrapper => {
     populateStepButtons(wrapper);
 });
-
-elements.timerDisplay.stepButtons = document.querySelectorAll('.step-button');
 
 // === Functions ===
 function populateStepButtons(wrapper) {
@@ -76,21 +75,6 @@ function populateStepButtons(wrapper) {
     decreaseButton.addEventListener('click', () => {
         timer.initialTime = Math.max(0, timer.initialTime - UNIT_MS[unit]);
         updateTimerDisplay(timer.initialTime);
-    });
-
-    wrapper.addEventListener('mouseenter', () => {
-        if (timer.currentState === TIMER_STATES.STOPPED) {
-            elements.timerDisplay.stepButtons?.forEach(button => {
-                button.classList.add('invisible');
-            });
-            increaseButton.classList.remove('invisible');
-            decreaseButton.classList.remove('invisible');
-        }
-    });
-
-    wrapper.addEventListener('mouseleave', () => {
-        increaseButton.classList.add('invisible');
-        decreaseButton.classList.add('invisible');
     });
 }
 
@@ -241,6 +225,16 @@ elements.timerControls.start.addEventListener('click', startTimer);
 elements.timerControls.pause.addEventListener('click', pauseTimer);
 elements.timerControls.reset.addEventListener('click', resetTimer);
 elements.audio.addEventListener('ended', startTimeWarning);
+
+document.addEventListener('pointerover', (event) => {
+    elements.timerDisplay.unitWrappers.forEach(wrapper => {
+        const stepButtons = wrapper.querySelectorAll('.step-button');
+        const pointerIsOver = wrapper.contains(event.target);
+        stepButtons.forEach(button => {
+            button.classList.toggle('invisible', !pointerIsOver);
+        });
+    });
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     updateTimerDisplay(0);
