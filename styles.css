@@ -21,7 +21,7 @@ body {
     display: -ms-flexbox;
     display: flex;
     font-family: sans-serif;
-    height: 100vh;
+    height: 100dvh;
     -ms-scroll-chaining: none;
         overscroll-behavior: none;
     -webkit-box-pack: center;
