@@ -51,6 +51,8 @@ elements.timerDisplay.unitWrappers.forEach(wrapper => {
     populateStepButtons(wrapper);
 });
 
+let audioUnlocked = false;
+
 // === Functions ===
 function populateStepButtons(wrapper) {
     const unit = wrapper.dataset.unit;
@@ -133,6 +135,15 @@ function toggleElementStyles() {
 }
 
 async function startTimer() {
+    if (!audioUnlocked) {
+        try{
+            unlockAudio(elements.audio);
+            audioUnlocked = true;
+        } catch (error) {
+            console.warn('Safari could not unlock audio:', error);
+        }
+        
+    }
     if (timer.currentState === TIMER_STATES.RUNNING) return;
 
     if (timer.initialTime === 0) {
@@ -165,6 +176,14 @@ async function startTimer() {
     }
 
     timer.animationFrameID = requestAnimationFrame(animateCountdown);
+}
+
+async function unlockAudio(audioEl) { // Workaround for automatic audio playback block on Safari
+    audioEl.muted = true;
+    await audioEl.play();
+    audioEl.pause();
+    audioEl.currentTime = 0;
+    audioEl.muted = false;
 }
 
 function updateBackgroundColor(percent) {
@@ -200,6 +219,7 @@ async function playAudio(audioEl) {
     if (!audioEl.paused && !audioEl.ended) return;
     
     try {
+        audioEl.load(); // Fixes cutoff audio playback on Safari
         await audioEl.play();
     } catch (error) {
         console.warn('Audio playback failed:', error);
